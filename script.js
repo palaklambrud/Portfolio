@@ -91,27 +91,30 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------- Dynamic Footer Year ---------- */
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* ---------- Poster Gallery: single trigger opens a carousel lightbox ---------- */
+  /* ---------- Gallery: card carousel + swipeable lightbox ---------- */
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxClose = document.getElementById('lightboxClose');
   const lightboxPrev = document.getElementById('lightboxPrev');
   const lightboxNext = document.getElementById('lightboxNext');
   const lightboxCounter = document.getElementById('lightboxCounter');
-  const galleryTrigger = document.getElementById('posterGalleryTrigger');
 
-  let galleryImages = [];
+  // Build the list of viewable images from every card that has a data-full attribute
+  // (the "coming soon" placeholder card has none, so it's skipped automatically —
+  // just add more <button class="gallery-card" data-full="..."> cards later and they'll be included).
+  const galleryCardEls = Array.from(document.querySelectorAll('.gallery-card[data-full]'));
+  const galleryImages = galleryCardEls.map(card => card.getAttribute('data-full'));
+
   let currentIndex = 0;
 
   const showImage = (index) => {
     currentIndex = (index + galleryImages.length) % galleryImages.length; // wrap around
     lightboxImg.src = galleryImages[currentIndex];
-    lightboxImg.alt = `Nike poster concept ${currentIndex + 1}`;
+    lightboxImg.alt = `Creative work item ${currentIndex + 1}`;
     lightboxCounter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
   };
 
-  const openLightbox = (images, startIndex = 0) => {
-    galleryImages = images;
+  const openLightbox = (startIndex) => {
     showImage(startIndex);
     lightbox.classList.add('open');
     lightbox.setAttribute('aria-hidden', 'false');
@@ -124,12 +127,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   };
 
-  if (galleryTrigger) {
-    galleryTrigger.addEventListener('click', () => {
-      const images = galleryTrigger.getAttribute('data-images').split(',');
-      openLightbox(images, 0);
-    });
-  }
+  galleryCardEls.forEach((card, index) => {
+    card.addEventListener('click', () => openLightbox(index));
+  });
 
   lightboxClose.addEventListener('click', closeLightbox);
   lightboxPrev.addEventListener('click', () => showImage(currentIndex - 1));
@@ -147,5 +147,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
     if (e.key === 'ArrowRight') showImage(currentIndex + 1);
   });
+
+  // Touch swipe support inside the lightbox (left/right to navigate)
+  let touchStartX = 0;
+  const swipeThreshold = 40; // minimum px distance to count as a swipe
+
+  lightbox.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  lightbox.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].screenX;
+    const deltaX = touchEndX - touchStartX;
+    if (Math.abs(deltaX) < swipeThreshold) return;
+    if (deltaX < 0) {
+      showImage(currentIndex + 1); // swiped left → next
+    } else {
+      showImage(currentIndex - 1); // swiped right → previous
+    }
+  }, { passive: true });
 
 });

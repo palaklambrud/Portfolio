@@ -124,10 +124,10 @@
           <!-- Project 1: Personal Portfolio Website -->
           <article class="project-card reveal featured-card">
             <div class="project-card-top">
-              <span class="project-tag">Personal ⭐</span>
+              <span class="project-tag">Personal</span>
             </div>
             <h3>Personal Portfolio Website</h3>
-            <p>The website you're building right now — designed and built from scratch with HTML, CSS &amp; JavaScript.</p>
+            <p>A personal portfolio showcasing my projects, creative work, and learning journey.</p>
           </article>
 
           <!-- Project 2: Health Setu Community Website -->
@@ -162,49 +162,50 @@
 
         <p class="gallery-intro reveal">A growing collection of design experiments — more pieces will be added here over time.</p>
 
-        <!-- Gallery category: Nike Poster Series -->
-        <div class="gallery-category reveal">
-          <h3 class="gallery-category-title">Nike Poster Series</h3>
-
-          <!-- Single compact trigger — opens the poster carousel on tap -->
-          <button
-            class="gallery-trigger"
-            id="posterGalleryTrigger"
-            data-images="images/nike-poster-1.jpg,images/nike-poster-2.jpg,images/nike-poster-3.jpg,images/nike-poster-4.jpg"
-            aria-label="Open Nike poster series gallery"
-          >
-            <span class="gallery-trigger-stack" aria-hidden="true">
-              <img src="images/nike-poster-1.jpg" alt="" loading="lazy">
-              <img src="images/nike-poster-2.jpg" alt="" loading="lazy">
-            </span>
-            <span class="gallery-trigger-text">
-              <span class="gallery-trigger-title">View Poster Series</span>
-              <span class="gallery-trigger-count">4 designs · tap to view</span>
-            </span>
+        <!-- Swipeable horizontal carousel of small preview cards.
+             To add future work: drop in another <button class="gallery-card"> before the "coming soon" card,
+             following the same data-full / img pattern. -->
+        <div class="gallery-carousel reveal" id="galleryCarousel">
+          <button class="gallery-card" data-full="images/nike-poster-1.jpg" aria-label="Open poster 1 larger">
+            <img src="images/nike-poster-1.jpg" alt="Nike advertisement poster concept 1 — Just Do It, 50% off" loading="lazy">
+            <span class="gallery-card-label">Nike Poster · 01</span>
           </button>
 
-          <p class="project-desc">
-            Nike Advertisement Poster Series &ndash; A collection of four promotional poster concepts exploring
-            different layouts, typography, and visual styles inspired by Nike&rsquo;s branding.
-          </p>
-        </div>
+          <button class="gallery-card" data-full="images/nike-poster-2.jpg" aria-label="Open poster 2 larger">
+            <img src="images/nike-poster-2.jpg" alt="Nike advertisement poster concept 2 — repeated NIKE wordmark background" loading="lazy">
+            <span class="gallery-card-label">Nike Poster · 02</span>
+          </button>
 
-        <!-- Placeholder for future gallery categories -->
-        <div class="gallery-category reveal">
-          <div class="gallery-more">
+          <button class="gallery-card" data-full="images/nike-poster-3.jpg" aria-label="Open poster 3 larger">
+            <img src="images/nike-poster-3.jpg" alt="Nike advertisement poster concept 3 — concept ad, portfolio project 2026" loading="lazy">
+            <span class="gallery-card-label">Nike Poster · 03</span>
+          </button>
+
+          <button class="gallery-card" data-full="images/nike-poster-4.jpg" aria-label="Open poster 4 larger">
+            <img src="images/nike-poster-4.jpg" alt="Nike advertisement poster concept 4 — stacked typography layout" loading="lazy">
+            <span class="gallery-card-label">Nike Poster · 04</span>
+          </button>
+
+          <!-- Placeholder card for future work (drawings, thumbnails, other posters) -->
+          <div class="gallery-card gallery-card-soon">
             <span class="gallery-more-icon">+</span>
-            <p>More design work coming soon</p>
+            <p>More work<br>coming soon</p>
           </div>
         </div>
+
+        <p class="project-desc reveal">
+          Nike Advertisement Poster Series &ndash; A collection of four promotional poster concepts exploring
+          different layouts, typography, and visual styles inspired by Nike&rsquo;s branding.
+        </p>
       </div>
     </section>
 
-    <!-- ===== LIGHTBOX (poster carousel overlay) ===== -->
+    <!-- ===== LIGHTBOX (swipeable poster viewer) ===== -->
     <div class="lightbox" id="lightbox" aria-hidden="true">
       <button class="lightbox-close" id="lightboxClose" aria-label="Close larger view">&times;</button>
-      <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous poster">&#10094;</button>
-      <img src="" alt="Enlarged poster view" id="lightboxImg" class="lightbox-img">
-      <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next poster">&#10095;</button>
+      <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">&#10094;</button>
+      <img src="" alt="Enlarged view" id="lightboxImg" class="lightbox-img">
+      <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">&#10095;</button>
       <span class="lightbox-counter" id="lightboxCounter">1 / 4</span>
     </div>
 
