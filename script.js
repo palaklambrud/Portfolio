@@ -91,15 +91,28 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------- Dynamic Footer Year ---------- */
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* ---------- Poster Gallery Lightbox ---------- */
+  /* ---------- Poster Gallery: single trigger opens a carousel lightbox ---------- */
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxClose = document.getElementById('lightboxClose');
-  const posterItems = document.querySelectorAll('.poster-item');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+  const lightboxCounter = document.getElementById('lightboxCounter');
+  const galleryTrigger = document.getElementById('posterGalleryTrigger');
 
-  const openLightbox = (src, alt) => {
-    lightboxImg.src = src;
-    lightboxImg.alt = alt;
+  let galleryImages = [];
+  let currentIndex = 0;
+
+  const showImage = (index) => {
+    currentIndex = (index + galleryImages.length) % galleryImages.length; // wrap around
+    lightboxImg.src = galleryImages[currentIndex];
+    lightboxImg.alt = `Nike poster concept ${currentIndex + 1}`;
+    lightboxCounter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
+  };
+
+  const openLightbox = (images, startIndex = 0) => {
+    galleryImages = images;
+    showImage(startIndex);
     lightbox.classList.add('open');
     lightbox.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden'; // prevent background scroll
@@ -111,26 +124,28 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   };
 
-  posterItems.forEach(item => {
-    item.addEventListener('click', () => {
-      const fullSrc = item.getAttribute('data-full');
-      const altText = item.querySelector('img').getAttribute('alt');
-      openLightbox(fullSrc, altText);
+  if (galleryTrigger) {
+    galleryTrigger.addEventListener('click', () => {
+      const images = galleryTrigger.getAttribute('data-images').split(',');
+      openLightbox(images, 0);
     });
-  });
+  }
 
   lightboxClose.addEventListener('click', closeLightbox);
+  lightboxPrev.addEventListener('click', () => showImage(currentIndex - 1));
+  lightboxNext.addEventListener('click', () => showImage(currentIndex + 1));
 
-  // Close when clicking the dark overlay (outside the image)
+  // Close when clicking the dark overlay (outside the image/controls)
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) closeLightbox();
   });
 
-  // Close on Escape key
+  // Keyboard controls: Escape closes, arrow keys navigate
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('open')) {
-      closeLightbox();
-    }
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+    if (e.key === 'ArrowRight') showImage(currentIndex + 1);
   });
 
 });
