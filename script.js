@@ -91,4 +91,46 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------- Dynamic Footer Year ---------- */
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  /* ---------- Poster Gallery Lightbox ---------- */
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const posterItems = document.querySelectorAll('.poster-item');
+
+  const openLightbox = (src, alt) => {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden'; // prevent background scroll
+  };
+
+  const closeLightbox = () => {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  posterItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const fullSrc = item.getAttribute('data-full');
+      const altText = item.querySelector('img').getAttribute('alt');
+      openLightbox(fullSrc, altText);
+    });
+  });
+
+  lightboxClose.addEventListener('click', closeLightbox);
+
+  // Close when clicking the dark overlay (outside the image)
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+      closeLightbox();
+    }
+  });
+
 });

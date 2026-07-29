@@ -25,8 +25,10 @@
         <a href="#about" class="nav-link">About</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#projects" class="nav-link">Projects</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
         <a href="#experience" class="nav-link">Experience</a>
         <a href="#education" class="nav-link">Education</a>
+        <a href="#certifications" class="nav-link">Certifications</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
@@ -119,26 +121,88 @@
         <div class="growth-bar small reveal" aria-hidden="true"><span></span></div>
 
         <div class="projects-grid">
+          <!-- Project 1: Personal Portfolio Website -->
+          <article class="project-card reveal featured-card">
+            <div class="project-card-top">
+              <span class="project-tag">Personal ⭐</span>
+            </div>
+            <h3>Personal Portfolio Website</h3>
+            <p>The website you're building right now — designed and built from scratch with HTML, CSS &amp; JavaScript.</p>
+          </article>
+
+          <!-- Project 2: Health Setu Community Website -->
           <article class="project-card reveal">
             <div class="project-card-top">
               <span class="project-tag">Community</span>
             </div>
             <h3>Health Setu Community Website</h3>
-            <p>A community-driven platform built to share health awareness content and support local initiatives.</p>
-            <a href="#" class="project-link">View Project &rarr;</a>
+            <p>Managed and deployed an AI-assisted website for a community health initiative, from setup to hosting.</p>
+            <a href="https://healthsetu01.github.io/Health-setu-/" target="_blank" rel="noopener" class="btn btn-primary project-btn">Visit Website</a>
           </article>
 
+          <!-- Project 3: Nike Advertisement Poster Series -->
           <article class="project-card reveal">
             <div class="project-card-top">
-              <span class="project-tag">Personal</span>
+              <span class="project-tag">Design</span>
             </div>
-            <h3>Personal Portfolio Website</h3>
-            <p>A minimal, responsive portfolio built with HTML, CSS &amp; JavaScript to showcase my work and journey.</p>
-            <a href="#" class="project-link">View Project &rarr;</a>
+            <h3>Nike Advertisement Poster Series</h3>
+            <p>Designed a series of promotional poster concepts for Nike, focusing on typography, branding, layout, and visual hierarchy using Canva.</p>
+            <a href="#gallery" class="project-link">View in Gallery &rarr;</a>
           </article>
         </div>
       </div>
     </section>
+
+    <!-- ===== CREATIVE WORK (GALLERY) ===== -->
+    <section id="gallery" class="section alt-bg">
+      <div class="section-inner">
+        <p class="eyebrow reveal">🎨 Creative Work</p>
+        <h2 class="section-title reveal">Gallery</h2>
+        <div class="growth-bar small reveal" aria-hidden="true"><span></span></div>
+
+        <p class="gallery-intro reveal">A growing collection of design experiments — more pieces will be added here over time.</p>
+
+        <!-- Gallery category: Nike Poster Series -->
+        <div class="gallery-category reveal">
+          <h3 class="gallery-category-title">Nike Poster Series</h3>
+
+          <!-- Poster gallery: click any poster to view it larger -->
+          <div class="poster-gallery">
+            <button class="poster-item" data-full="images/nike-poster-1.jpg" aria-label="View poster 1 larger">
+              <img src="images/nike-poster-1.jpg" alt="Nike advertisement poster concept 1 — Just Do It, 50% off" loading="lazy">
+            </button>
+            <button class="poster-item" data-full="images/nike-poster-2.jpg" aria-label="View poster 2 larger">
+              <img src="images/nike-poster-2.jpg" alt="Nike advertisement poster concept 2 — repeated NIKE wordmark background" loading="lazy">
+            </button>
+            <button class="poster-item" data-full="images/nike-poster-3.jpg" aria-label="View poster 3 larger">
+              <img src="images/nike-poster-3.jpg" alt="Nike advertisement poster concept 3 — concept ad, portfolio project 2026" loading="lazy">
+            </button>
+            <button class="poster-item" data-full="images/nike-poster-4.jpg" aria-label="View poster 4 larger">
+              <img src="images/nike-poster-4.jpg" alt="Nike advertisement poster concept 4 — stacked typography layout" loading="lazy">
+            </button>
+          </div>
+
+          <p class="project-desc">
+            Nike Advertisement Poster Series &ndash; A collection of four promotional poster concepts exploring
+            different layouts, typography, and visual styles inspired by Nike&rsquo;s branding.
+          </p>
+        </div>
+
+        <!-- Placeholder for future gallery categories -->
+        <div class="gallery-category reveal">
+          <div class="gallery-more">
+            <span class="gallery-more-icon">+</span>
+            <p>More design work coming soon</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LIGHTBOX (poster full-view overlay) ===== -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close larger view">&times;</button>
+      <img src="" alt="Enlarged poster view" id="lightboxImg" class="lightbox-img">
+    </div>
 
     <!-- ===== EXPERIENCE ===== -->
     <section id="experience" class="section alt-bg">
@@ -172,16 +236,26 @@
             <h3>Higher Secondary (12th)</h3>
             <p class="education-board">Maharashtra State Board</p>
           </div>
-          <div class="education-score">
-            <span class="score-number">83.83%</span>
-            <span class="score-label">Aggregate Score</span>
-          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ACHIEVEMENTS & CERTIFICATIONS ===== -->
+    <section id="certifications" class="section alt-bg">
+      <div class="section-inner">
+        <p class="eyebrow reveal">Recognition</p>
+        <h2 class="section-title reveal">Achievements &amp; Certifications</h2>
+        <div class="growth-bar small reveal" aria-hidden="true"><span></span></div>
+
+        <div class="coming-soon-card reveal">
+          <span class="coming-soon-icon">🏆</span>
+          <p>Achievements and certifications will be added here soon.</p>
         </div>
       </div>
     </section>
 
     <!-- ===== CONTACT ===== -->
-    <section id="contact" class="section alt-bg">
+    <section id="contact" class="section">
       <div class="section-inner">
         <p class="eyebrow reveal">Let's Connect</p>
         <h2 class="section-title reveal">Contact</h2>
@@ -194,11 +268,11 @@
             <span class="contact-icon">🐙</span>
             <span>GitHub</span>
           </a>
-          <a href="https://linkedin.com/" target="_blank" rel="noopener" class="contact-card reveal">
+          <a href="https://www.linkedin.com/in/palak-lambrud-4a6503389" target="_blank" rel="noopener" class="contact-card reveal">
             <span class="contact-icon">💼</span>
             <span>LinkedIn</span>
           </a>
-          <a href="mailto:palaklambrud@example.com" class="contact-card reveal">
+          <a href="mailto:palaklambrud@gmail.com" class="contact-card reveal">
             <span class="contact-icon">✉️</span>
             <span>Email</span>
           </a>
