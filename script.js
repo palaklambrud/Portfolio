@@ -1,5 +1,5 @@
 /* ==========================================================================
-   PALAK LAMBRUD — PORTFOLIO SCRIPT
+   PALAK LAMBRUD , PORTFOLIO SCRIPT
    Handles: mobile nav toggle, scroll-reveal animations,
             active nav-link highlighting, dynamic footer year
    ========================================================================== */
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightboxCounter = document.getElementById('lightboxCounter');
 
   // Build the list of viewable images from every card that has a data-full attribute
-  // (the "coming soon" placeholder card has none, so it's skipped automatically —
+  // (the "coming soon" placeholder card has none, so it's skipped automatically ,
   // just add more <button class="gallery-card" data-full="..."> cards later and they'll be included).
   const galleryCardEls = Array.from(document.querySelectorAll('.gallery-card[data-full]'));
   const galleryImages = galleryCardEls.map(card => card.getAttribute('data-full'));
