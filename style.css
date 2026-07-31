@@ -141,8 +141,13 @@ img {
   border-radius: 999px;
   font-size: 0.95rem;
   font-weight: 500;
+  font-family: inherit;
   transition: all var(--transition);
   border: 1px solid transparent;
+  background: none;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
 }
 
 .btn-primary {
