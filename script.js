@@ -99,22 +99,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightboxNext = document.getElementById('lightboxNext');
   const lightboxCounter = document.getElementById('lightboxCounter');
 
-  // Build the list of viewable images from every card that has a data-full attribute
-  // (the "coming soon" placeholder card has none, so it's skipped automatically ,
-  // just add more <button class="gallery-card" data-full="..."> cards later and they'll be included).
-  const galleryCardEls = Array.from(document.querySelectorAll('.gallery-card[data-full]'));
-  const galleryImages = galleryCardEls.map(card => card.getAttribute('data-full'));
-
+  // The lightbox works with whichever image set was last opened ("currentSet"),
+  // so the same modal can serve the main Gallery carousel and each project's
+  // own "View Project" button, without them interfering with each other.
+  let currentSet = [];
   let currentIndex = 0;
 
   const showImage = (index) => {
-    currentIndex = (index + galleryImages.length) % galleryImages.length; // wrap around
-    lightboxImg.src = galleryImages[currentIndex];
-    lightboxImg.alt = `Creative work item ${currentIndex + 1}`;
-    lightboxCounter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
+    currentIndex = (index + currentSet.length) % currentSet.length; // wrap around
+    lightboxImg.src = currentSet[currentIndex];
+    lightboxImg.alt = `Design ${currentIndex + 1} of ${currentSet.length}`;
+    lightboxCounter.textContent = `${currentIndex + 1} / ${currentSet.length}`;
   };
 
-  const openLightbox = (startIndex) => {
+  const openLightbox = (images, startIndex = 0) => {
+    currentSet = images;
     showImage(startIndex);
     lightbox.classList.add('open');
     lightbox.setAttribute('aria-hidden', 'false');
@@ -127,8 +126,26 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   };
 
+  // Main Creative Work gallery: every card with data-full is pooled into one continuous set,
+  // so swiping moves through the whole gallery in order.
+  // (The "coming soon" placeholder card has no data-full, so it's skipped automatically ,
+  // just add more <button class="gallery-card" data-full="..."> cards later and they'll be included.)
+  const galleryCardEls = Array.from(document.querySelectorAll('.gallery-card[data-full]'));
+  const galleryImages = galleryCardEls.map(card => card.getAttribute('data-full'));
+
   galleryCardEls.forEach((card, index) => {
-    card.addEventListener('click', () => openLightbox(index));
+    card.addEventListener('click', () => openLightbox(galleryImages, index));
+  });
+
+  // Project "View Project" buttons: each one opens ONLY its own set of images,
+  // read from its own data-images attribute (comma-separated list).
+  const collectionViewBtns = document.querySelectorAll('.collection-view-btn');
+
+  collectionViewBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const images = btn.getAttribute('data-images').split(',');
+      openLightbox(images, 0);
+    });
   });
 
   lightboxClose.addEventListener('click', closeLightbox);

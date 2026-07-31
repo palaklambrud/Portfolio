@@ -431,6 +431,39 @@ img {
   opacity: 0.75;
 }
 
+/* Creative Design Collection card: sits taller than other project cards
+   since it holds a compact sub-list, so it spans the full row width */
+.collection-card {
+  grid-column: 1 / -1;
+}
+
+.collection-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+}
+
+.collection-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.collection-item-name {
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.collection-view-btn {
+  padding: 8px 20px;
+  font-size: 0.82rem;
+  flex-shrink: 0;
+}
+
 /* Featured project card (Personal Portfolio Website) gets a subtle accent border */
 .featured-card {
   border-color: var(--accent);
@@ -446,12 +479,14 @@ img {
 
 .gallery-carousel {
   display: flex;
-  gap: 16px;
+  align-items: stretch;
+  gap: 18px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  padding-bottom: 10px;
-  margin-bottom: 26px;
+  scroll-padding-left: 4px;
+  padding: 4px 4px 14px;
+  margin-bottom: 30px;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -534,6 +569,13 @@ img {
 .gallery-more-icon {
   display: block;
   font-size: 1.4rem;
+}
+
+.gallery-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  max-width: 640px;
+  line-height: 1.7;
 }
 
 /* ---------- Coming Soon Card (Certifications) ---------- */
