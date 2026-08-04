@@ -7,6 +7,10 @@ creative work, and learning journey.
 
 [Visit my portfolio](https://palaklambrud.github.io/Portfolio/)
 
+## 📸 Preview
+
+![Portfolio Preview](./preview.png)
+
 ## 🛠️ Technologies
 
 - HTML
