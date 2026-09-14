@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Palak Lambrud | Portfolio</title>
-<meta name="description" content="Palak Lambrud, Student. Learning, Building & Growing Every Day." />
+<title>Palak Lambrud | Pharmacy Student &amp; Builder</title>
+<meta name="description" content="Palak Lambrud — a pharmacy student exploring the intersection of pharmaceutical science, research, technology and design." />
 
 <!-- Google Font: Poppins -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,6 +23,7 @@
       <nav class="nav-links" id="navLinks">
         <a href="#hero" class="nav-link active-link">Home</a>
         <a href="#about" class="nav-link">About</a>
+        <a href="#exploring" class="nav-link">Exploring</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#gallery" class="nav-link">Gallery</a>
@@ -44,17 +45,44 @@
 
     <!-- ===== HERO ===== -->
     <section id="hero" class="hero">
+
+      <!-- Subtle decorative pharma + tech motif (purely visual, non-interactive) -->
+      <div class="hero-visual hero-visual-left" aria-hidden="true">
+        <svg class="molecule-svg" viewBox="0 0 200 200">
+          <line x1="40" y1="50" x2="100" y2="100" class="molecule-bond"></line>
+          <line x1="100" y1="100" x2="160" y2="60" class="molecule-bond"></line>
+          <line x1="100" y1="100" x2="120" y2="160" class="molecule-bond"></line>
+          <line x1="100" y1="100" x2="50" y2="150" class="molecule-bond"></line>
+          <circle cx="40" cy="50" r="7" class="molecule-atom"></circle>
+          <circle cx="100" cy="100" r="9" class="molecule-atom molecule-atom-center"></circle>
+          <circle cx="160" cy="60" r="6" class="molecule-atom"></circle>
+          <circle cx="120" cy="160" r="6" class="molecule-atom"></circle>
+          <circle cx="50" cy="150" r="6" class="molecule-atom"></circle>
+        </svg>
+      </div>
+      <div class="hero-visual hero-visual-right" aria-hidden="true">
+        <svg class="molecule-svg" viewBox="0 0 200 200">
+          <line x1="60" y1="40" x2="110" y2="90" class="molecule-bond"></line>
+          <line x1="110" y1="90" x2="150" y2="140" class="molecule-bond"></line>
+          <line x1="110" y1="90" x2="55" y2="130" class="molecule-bond"></line>
+          <circle cx="60" cy="40" r="6" class="molecule-atom"></circle>
+          <circle cx="110" cy="90" r="8" class="molecule-atom molecule-atom-center"></circle>
+          <circle cx="150" cy="140" r="6" class="molecule-atom"></circle>
+          <circle cx="55" cy="130" r="5" class="molecule-atom"></circle>
+        </svg>
+      </div>
+
       <div class="hero-inner reveal">
         <p class="eyebrow">Hello, I'm</p>
         <h1 class="hero-name">Palak Lambrud</h1>
-        <p class="hero-role">Student</p>
-        <p class="hero-tagline">Learning, Building &amp; Growing Every Day</p>
+        <p class="hero-role">Pharmacy Student · Research Enthusiast · Tech &amp; Design Builder</p>
+        <p class="hero-tagline">Exploring how technology, research and design can shape the future of healthcare.</p>
 
         <div class="growth-bar" aria-hidden="true"><span></span></div>
 
         <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">View Projects</a>
-          <a href="#contact" class="btn btn-outline">Get In Touch</a>
+          <a href="#projects" class="btn btn-primary">Explore My Work</a>
+          <a href="#contact" class="btn btn-outline">Connect With Me</a>
         </div>
       </div>
 
@@ -71,9 +99,48 @@
         <div class="growth-bar small reveal" aria-hidden="true"><span></span></div>
 
         <p class="about-text reveal">
-          I am a student passionate about technology, AI tools, digital content, and continuous learning.
-          I enjoy creating projects, exploring new technologies, and contributing to community initiatives.
+          I'm entering B.Pharm, and I'm genuinely curious about where pharmaceutical science meets technology.
+          Alongside my coursework, I like exploring things like Python, AI tools, and molecular docking —
+          and outside of that, I build small web projects, help run a community health initiative, and
+          take on design work when I can. I'm still early in this journey, but I care about combining
+          science, research and technology in a way that's actually useful.
         </p>
+      </div>
+    </section>
+
+    <!-- ===== CURRENTLY EXPLORING ===== -->
+    <section id="exploring" class="section">
+      <div class="section-inner">
+        <p class="eyebrow reveal">Right Now</p>
+        <h2 class="section-title reveal">Currently Exploring</h2>
+        <div class="growth-bar small reveal" aria-hidden="true"><span></span></div>
+
+        <div class="skills-grid">
+          <div class="skill-card reveal">
+            <span class="skill-icon">🧬</span>
+            <p>Pharmaceutical Research</p>
+          </div>
+          <div class="skill-card reveal">
+            <span class="skill-icon">💻</span>
+            <p>Python &amp; AI</p>
+          </div>
+          <div class="skill-card reveal">
+            <span class="skill-icon">🔬</span>
+            <p>Molecular Docking</p>
+          </div>
+          <div class="skill-card reveal">
+            <span class="skill-icon">🧠</span>
+            <p>Computational Drug Discovery</p>
+          </div>
+          <div class="skill-card reveal">
+            <span class="skill-icon">🎨</span>
+            <p>Visual Design</p>
+          </div>
+          <div class="skill-card reveal">
+            <span class="skill-icon">🌐</span>
+            <p>Web Projects</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -84,30 +151,63 @@
         <h2 class="section-title reveal">Skills</h2>
         <div class="growth-bar small reveal" aria-hidden="true"><span></span></div>
 
-        <div class="skills-grid">
-          <div class="skill-card reveal">
-            <span class="skill-icon">✍️</span>
-            <p>Content Creation</p>
+        <div class="skills-categories">
+          <div class="skills-category reveal">
+            <h3 class="skills-category-title">Science &amp; Research</h3>
+            <div class="skills-grid skills-grid-3">
+              <div class="skill-card">
+                <span class="skill-icon">🧪</span>
+                <p>Pharmaceutical Sciences (Foundational)</p>
+              </div>
+              <div class="skill-card">
+                <span class="skill-icon">📚</span>
+                <p>Research Exploration</p>
+              </div>
+              <div class="skill-card">
+                <span class="skill-icon">🔬</span>
+                <p>Molecular Docking (Learning)</p>
+              </div>
+            </div>
           </div>
-          <div class="skill-card reveal">
-            <span class="skill-icon">🎬</span>
-            <p>Video Editing</p>
+
+          <div class="skills-category reveal">
+            <h3 class="skills-category-title">Technology</h3>
+            <div class="skills-grid skills-grid-3">
+              <div class="skill-card">
+                <span class="skill-icon">🐍</span>
+                <p>Python</p>
+              </div>
+              <div class="skill-card">
+                <span class="skill-icon">🤖</span>
+                <p>AI Tools</p>
+              </div>
+              <div class="skill-card">
+                <span class="skill-icon">🌐</span>
+                <p>GitHub &amp; GitHub Pages</p>
+              </div>
+              <div class="skill-card">
+                <span class="skill-icon">🛠️</span>
+                <p>HTML/CSS &amp; Basic Web Dev</p>
+              </div>
+            </div>
           </div>
-          <div class="skill-card reveal">
-            <span class="skill-icon">🎨</span>
-            <p>Canva</p>
-          </div>
-          <div class="skill-card reveal">
-            <span class="skill-icon">🤖</span>
-            <p>AI Tools</p>
-          </div>
-          <div class="skill-card reveal">
-            <span class="skill-icon">🌐</span>
-            <p>GitHub Pages</p>
-          </div>
-          <div class="skill-card reveal">
-            <span class="skill-icon">🛠️</span>
-            <p>Basic Website Management</p>
+
+          <div class="skills-category reveal">
+            <h3 class="skills-category-title">Creative</h3>
+            <div class="skills-grid skills-grid-3">
+              <div class="skill-card">
+                <span class="skill-icon">🎨</span>
+                <p>Canva &amp; Graphic Design</p>
+              </div>
+              <div class="skill-card">
+                <span class="skill-icon">✍️</span>
+                <p>Content Creation</p>
+              </div>
+              <div class="skill-card">
+                <span class="skill-icon">🎬</span>
+                <p>Video Editing</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -127,7 +227,7 @@
               <span class="project-tag">Personal</span>
             </div>
             <h3>Personal Portfolio Website</h3>
-            <p>A personal portfolio showcasing my projects, creative work, and learning journey.</p>
+            <p>A personal portfolio showcasing my projects, creative work, and my journey combining pharmaceutical science, technology, and design.</p>
           </article>
 
           <!-- Project 2: Health Setu Community Website -->
@@ -136,7 +236,7 @@
               <span class="project-tag">Community</span>
             </div>
             <h3>Health Setu Community Website</h3>
-            <p>Managed and deployed an AI-assisted website for a community health initiative, from setup to hosting.</p>
+            <p>Worked with the Health Setu team on community health initiatives and later took on the website — building and deploying it with AI-assisted development, from setup to hosting.</p>
             <a href="https://healthsetu01.github.io/Health-setu-/" target="_blank" rel="noopener" class="btn btn-primary project-btn">Visit Website</a>
           </article>
 
@@ -206,19 +306,9 @@
             <span class="gallery-card-label">Nike Poster · 03</span>
           </button>
 
-          <button class="gallery-card" data-full="images/nike-poster-4.jpg" aria-label="Open poster 4 larger">
-            <img src="images/nike-poster-4.jpg" alt="Nike advertisement poster concept 4, stacked typography layout" loading="lazy">
-            <span class="gallery-card-label">Nike Poster · 04</span>
-          </button>
-
           <button class="gallery-card" data-full="images/editorial-magazine-cover.jpg" aria-label="Open Editorial Magazine Cover larger">
             <img src="images/editorial-magazine-cover.jpg" alt="Editorial magazine cover design" loading="lazy">
             <span class="gallery-card-label">Editorial Magazine Cover</span>
-          </button>
-
-          <button class="gallery-card" data-full="images/typography-poster.jpg" aria-label="Open Typography Poster larger">
-            <img src="images/typography-poster.jpg" alt="Typography poster design" loading="lazy">
-            <span class="gallery-card-label">Typography Poster</span>
           </button>
 
           <button class="gallery-card" data-full="images/seven-concept-1.jpg" aria-label="Open SEVEN visual 1 larger">
@@ -245,7 +335,9 @@
 
         <p class="gallery-desc reveal">
           These pieces are personal design experiments made to practice branding, editorial layout, and visual
-          storytelling outside of coursework. The goal was simply to get better at making deliberate design choices, not to complete
+          storytelling outside of coursework. Each one started with a mood or reference I liked, then moved
+          through rough layout sketches in Canva before landing on a final composition, typography, and color
+          treatment. The goal was simply to get better at making deliberate design choices, not to complete
           client work.
         </p>
       </div>
@@ -274,6 +366,24 @@
               <h3>Coordinator</h3>
               <p class="timeline-org">Health Setu Community</p>
               <p class="timeline-desc">Helped organize and coordinate community health initiatives, working alongside a team to plan activities and spread awareness.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Graphic Design Intern</h3>
+              <p class="timeline-org">Pehchaan The Street School Trust</p>
+              <p class="timeline-desc">Create social-media designs and visual communication materials for the NGO.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Social Media Marketing Intern</h3>
+              <p class="timeline-org">Pledge A Smile Foundation — Project SEVA</p>
+              <p class="timeline-desc">Contributed to social media marketing efforts as part of Project SEVA.</p>
             </div>
           </div>
         </div>
@@ -317,6 +427,7 @@
         <h2 class="section-title reveal">Contact</h2>
         <div class="growth-bar small reveal" aria-hidden="true"><span></span></div>
 
+        <p class="contact-tagline reveal">Let's build something meaningful.</p>
         <p class="contact-intro reveal">Feel free to reach out. I'm always open to new ideas, collaborations, and opportunities to learn.</p>
 
         <div class="contact-links">
